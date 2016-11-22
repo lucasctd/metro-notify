@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MetroUI</title>
+	<link type='text/css' href="build/css/notify.css" rel="stylesheet">
+</head>
+<body>
+<center>
+    <table style="margin-top: 100px;">
+        <tr>
+            <td>
+                <label for="title">Title:</label>
+                <input id="title"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <textarea id="message" rows="4" cols="50" placeholder="Type something here to notify =D"></textarea><br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="type">Type:</label>
+                <select id="type">
+                    <option value="1">Info</option>
+                    <option value="2">Warning</option>
+                    <option value="3">Error</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <center>
+                    <button id="show">Show</button>
+                </center>
+            </td>
+        </tr>
+    </table>
+</center>
+</body>
+  <footer>
+  	<script type="text/javascript" charset="UTF-8" src="build/js/notify.js"></script>
+  	<script>
+			//To run this piece of code, use notify_standalone.js
+	    test();
+			function test(){
+	        if(typeof Notify === "undefined"){
+	            return;
+	        }
+	        notify = new Notify();
+	        $("#show").on("click", function(){
+	            notify.show($("#title").val(), $("#message").val(), {position: notify.RIGHT, type: $("#type").val()});
+	        });
+			}
+  	</script>
+	</footer>
+</html>
